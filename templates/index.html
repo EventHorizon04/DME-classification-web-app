@@ -1,0 +1,76 @@
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DME Image Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/main.css") }}">
+        
+        <!-- Load jQuery first -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        
+        
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </head>
+    <body>
+        <header>
+            <div class="description">
+                <h1>Diabetic Macular Edema Responsive Classification Application Using Deep Learning and Machine Learning</h1>
+            </div>
+        </header>
+
+        <div class="header">
+            <div>
+                <label>Date: <span id="current-date"></span></label>
+            </div>
+            <div class="form-group">
+                <label for="case-id">Case ID:</label>
+                <input type="text" id="case-id" class="input-field" placeholder="Enter Case ID">
+            </div>
+        </div>
+        
+        <p class="description" style="font-size: 20px">
+            Upload your JPG or PNG images to receive classification result.
+        </p>
+        
+        <div class="upload-container">
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+                <!-- OCT image section-->
+                <div class="upload-section">
+                    <label for="image1" class="upload-label">
+                        Select OCT Image
+                    </label>
+                    <input type="file" name="image1" id="image1" accept="image/*,.tiff">
+                    
+                    <div class="image-preview" id="imagePreview1Container" style="display:none;">
+                        <img id="imagePreview1" class="preview" src="" alt="OCT Image Preview">
+                    </div> 
+                </div>
+
+                <!--Map image section-->
+                <div class="upload-section">
+                    <label for="image2" class="upload-label">
+                        Select Thickness Color Map Image
+                    </label>
+                    
+                    <input type="file" name="image2" id="image2" accept="image/*,.tiff">     
+                    <div class="image-preview" id="imagePreview2Container" style="display:none;">
+                        <img id="imagePreview2" class="preview" alt="Color Map Image Preview">
+                    </div>
+                </div>
+            </form> 
+    </div>
+        
+        <div class="loader" style="display:none;"></div>
+            
+        <div class="result-container">
+            <header>Result at optimal threshold = 52.83%:</header>
+            <p>Case-ID: <span id='case-id-display'>N/A</span></p>
+            <p>Response class: <span id='response-class'>{{ response_prob|default("N/A")}}</span></p>
+            <p>Non-response class: <span id='non-response-class'>{{ non_response_prob|default("N/A")}}</span></p>
+        </div>
+        <div class="predict-btn-container">
+            <div>
+                <button class="predict-label" id="predict-btn">Predict!</button>
+            </div>
+        </div>
+</html>

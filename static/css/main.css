@@ -1,0 +1,232 @@
+/* -----------------------------------------------------------------------*/
+/*BASIC SETUP*/
+/* -----------------------------------------------------------------------*/
+
+* {
+    margin: auto;
+    padding: 10;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #6d9eb6;
+    color: #ffffff;
+    font-family: 'Play', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {                                             /*clear float after an element*/
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/* -----------------------------------------------------------------------*/
+/*LINKS*/
+/* -----------------------------------------------------------------------*/
+
+a:link,
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #cccccc;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+/* -----------------------------------------------------------------------*/
+/*DEFAULT PART*/
+/* -----------------------------------------------------------------------*/
+
+/* -----------------------------------------------------------------------*/
+/* DATE AND INPUT FIELDS */
+/* -----------------------------------------------------------------------*/
+
+#current-date{
+    font-size: 20px
+}
+
+.description {
+    margin: 20 px auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+.input-field{
+    display: inline-block;
+    width: 100% ;
+    max-width: 300px;
+    padding: 12px 20px;
+    border: 2px solid #cccccc;
+    border-radius: 10px ;
+    margin-top: 10px ;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* -----------------------------------------------------------------------*/
+/* IMAGE UPLOAD SECTION */
+/* -----------------------------------------------------------------------*/
+
+.upload-container {
+    border: 2px solid #cccccc;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 10px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.upload-label{
+    display: inline-block;
+    width: 100%;
+    padding: 12px 28px;
+    background: #ffffff;
+    color: #000000;
+    transition: all .4s;
+    cursor: pointer;
+    border: 2px solid #cccccc;
+    border-radius: 10px ;
+}
+
+.upload-label:hover{
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;  
+}
+
+/* -----------------------------------------------------------------------*/
+/* IMAGE PREVIEW */
+/* -----------------------------------------------------------------------*/
+
+.preview {
+    display: flex;
+    width: 256px;
+    object-fit: cover;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin: 10px; 
+    border-radius: 10px ;
+    align-items: center;
+    justify-content: center; 
+}
+
+.image-preview {
+    width: 100%;
+    border: 5px solid #cccccc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-items: center;
+}
+
+/* -----------------------------------------------------------------------*/
+/* LOADER SPINNER */
+/* -----------------------------------------------------------------------*/
+.loader {
+    margin: 20 auto;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* -----------------------------------------------------------------------*/
+/* RESULT CONTAINER */
+/* -----------------------------------------------------------------------*/
+.result-container {
+    margin: 20px auto;
+    padding: 20px;
+    font-size: large;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* -----------------------------------------------------------------------*/
+/* PREDICT BUTTON */
+/* -----------------------------------------------------------------------*/
+.predict-btn-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 20px;
+    
+}
+
+.predict-label{
+    display: inline-block;
+    width: 100%;
+    padding: 12px 28px;
+    background: #ffffff;
+    color: #000000;
+    transition: all .4s;
+    cursor: pointer;
+    border: 2px solid #cccccc;
+    border-radius: 10px ;
+}
+
+.predict-label:hover{
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+/* -----------------------------------------------------------------------*/
+/* RESPONSIVE DESIGN */
+/* -----------------------------------------------------------------------*/
+@media (max-width: 1024px) {
+    .upload-container {
+        flex-direction: column;
+    }
+
+    .upload-label {
+        font-size: 3vw;
+        width: 100%;
+    }
+    
+    .predict-label {
+        font-size: 3vw;
+        width: 100%;
+    }
+}
